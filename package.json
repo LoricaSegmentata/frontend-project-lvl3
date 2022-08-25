@@ -2,13 +2,10 @@
   "name": "@hexlet/code",
   "version": "1.0.0",
   "description": "rss reader",
-  "bin": {
-    "brain-games": "bin/brain-games.js"
-  },
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Deim-Sha/frontend-project-lvl3.git"
@@ -22,6 +19,10 @@
   "devDependencies": {
     "eslint": "^8.22.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.26.0"
+    "eslint-plugin-import": "^2.26.0",
+    "html-webpack-plugin": "^5.5.0",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.10.0"
   }
 }
