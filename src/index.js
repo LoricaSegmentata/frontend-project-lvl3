@@ -1,2 +1,4 @@
-#!/usr/bin/env node
+import 'bootstrap';
+import './style.scss';
+
 console.log('Hello World!');
