@@ -1,18 +1,11 @@
 import onChange from 'on-change';
 
-const feedbackTexts = {
-  success: 'RSS успешно загружен',
-  invalidURL: 'Ссылка должна быть валидным URL',
-  notUniqURL: 'RSS уже существует',
-  unknown: 'Что-то пошло не так',
-};
-
-export default (state, elements) => onChange(state, (path, current) => {
+export default (state, elements, i18nextInstance) => onChange(state, (path, current) => {
   if (path === 'status') {
     if (current === 'success') {
       elements.input.classList.remove('is-invalid');
       elements.feedback.classList.replace('text-danger', 'text-success');
-      elements.feedback.textContent = feedbackTexts[current];
+      elements.feedback.textContent = i18nextInstance.t('success');
       elements.form.reset();
       elements.input.focus();
     } else if (current === 'fail') {
@@ -23,6 +16,6 @@ export default (state, elements) => onChange(state, (path, current) => {
   }
 
   if (path === 'error' && current !== null) {
-    elements.feedback.textContent = feedbackTexts[current];
+    elements.feedback.textContent = i18nextInstance.t(`errors.${current}`);
   }
 });

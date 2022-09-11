@@ -1,5 +1,7 @@
 import * as yup from 'yup';
-import createWatchedState from './view.js';
+import i18next from 'i18next';
+import createWatcher from './view.js';
+import ru from '../locales/ru.js';
 
 const elements = {
   form: document.querySelector('form'),
@@ -14,7 +16,15 @@ export default () => {
     error: null, // invalidURL, notUniqURL
   };
 
-  const watchedState = createWatchedState(state, elements);
+  const i18nextInstance = i18next.createInstance();
+  i18nextInstance.init({
+    lng: 'ru',
+    resources: {
+      ru,
+    },
+  });
+
+  const watchedState = createWatcher(state, elements, i18nextInstance);
 
   yup.setLocale({
     mixed: {
